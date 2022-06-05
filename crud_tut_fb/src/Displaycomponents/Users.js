@@ -1,5 +1,5 @@
-import "./App.css";
-import { db } from "./firebase";
+import "../App.css";
+import { db } from "../firebase";
 import {  ref, onValue } from "firebase/database";
 import { useState, useEffect } from "react";
 
@@ -35,8 +35,8 @@ function Users() {
             <td>{user.name}</td>
             <td>{user.email}</td>
             <td>{user.phone}</td>
-            <td>{user.password}</td>
             <td>{user.address}</td>
+            <td>{user.password}</td>
           </tr>
         ))}
         

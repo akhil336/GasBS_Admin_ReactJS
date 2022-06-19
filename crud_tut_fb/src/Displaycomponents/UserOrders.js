@@ -1,4 +1,5 @@
 import "../App.css";
+import "../css style/table.css";
 import { db } from "../firebase";
 import { set, remove, update,ref, onValue } from "firebase/database";
 import { useState, useEffect } from "react";
@@ -27,7 +28,7 @@ for (let id in data) {
     //         setOrders((oldArray) => [...oldArray, order]);
     //      });
     //    }
-    
+
      });
     }, []);
   
@@ -50,7 +51,7 @@ for (let id in data) {
     update(ref(db, `Orders/${tempOid}`), {
         status:status
     });
-
+    
     setStatus("");
     setIsEdit(false);
   };
@@ -60,8 +61,24 @@ for (let id in data) {
       <div className="App">
           
         <table><h4>Orders list</h4>
+        <tr>{isEdit ? (
+              <>   <input type="text" value={status} onChange={handleStatusChange} />
+      
+          <button onClick={handleSubmitChange}>Submit Change</button>
+          <button
+            onClick={() => {
+              setIsEdit(false);
+              setStatus("");
+            }}
+          >
+            X
+          </button>
+        
+          </>) : (<>
+        
+        </>)}
+        </tr>
           <tr>
-            <td>ID</td>
             <td>Amount</td>
             <td>Date/Time</td>
             <td>Status</td>
@@ -69,24 +86,11 @@ for (let id in data) {
           </tr>
         {order.map((order) => (
           <tr>
-              <td>{order.id}</td>
             <td>{order.amount}</td>
             <td>{order.datetime}</td>
             <td>
             {isEdit ? (
-              <>   <input type="text" value={status} onChange={handleStatusChange} />
-      
-      
-          <button onClick={handleSubmitChange}>Submit Change</button>
-          <button
-            onClick={() => {
-              setIsEdit(false);
-              setOrders("");
-            }}
-          >
-            X
-          </button>
-        
+              <>   {order.status}
           </>) : (<>
         {order.status} <button onClick={() => handleUpdate(order)}>update</button>
         </>)}

@@ -1,4 +1,4 @@
-{
+{"homepage":" https://akhil336.github.io/GasBS_Admin_ReactJS/",
   "name": "crud_tut_fb",
   "version": "0.1.0",
   "private": true,
@@ -16,7 +16,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "homepage":" https://akhil336.github.io/GasBS_Admin_ReactJS/",
+    
     "start": "react-scripts start",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",

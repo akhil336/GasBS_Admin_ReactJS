@@ -20,6 +20,7 @@ const arrays=[];
 for (let id in data) {
     arrays.push({ id, ...data[id] });
   }
+  arrays.reverse();
   setOrders(arrays);
 
     //     if (data !== null) {

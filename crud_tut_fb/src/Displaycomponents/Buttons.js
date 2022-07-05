@@ -42,15 +42,15 @@ const [showFeedbacks,setShowFeedbacks]=useState(false);
         {showHome?<><Home/></>:null}
         {showUser?<><button className="inline-block text-md
        leading-none border rounded text-white border-black bg-black
-       hover:border-black hover:text-black hover:bg-white mt-4 lg:mt-0 float-left ml-96" onClick={()=>{setShowUser(false);setShowHome(true)}} >Home</button><br/><Users /></>:null}
+       hover:border-black hover:text-black hover:bg-white mt-4 lg:mt-0 float-left" onClick={()=>{setShowUser(false);setShowHome(true)}} >Home</button><br/><Users /></>:null}
         
         {showOrders?<><button className="inline-block text-md
        leading-none border rounded text-white border-black bg-black
-       hover:border-black hover:text-black hover:bg-white mt-4 lg:mt-0 float-left ml-96" onClick={()=>{setShowOrder(false);setShowHome(true)}} >Home</button><br/><UserOrders /></>:null}
+       hover:border-black hover:text-black hover:bg-white mt-4 lg:mt-0 float-left" onClick={()=>{setShowOrder(false);setShowHome(true)}} >Home</button><br/><UserOrders /></>:null}
       
       {showFeedbacks?<><button className="inline-block text-md
        leading-none border rounded text-white border-black bg-black
-       hover:border-black hover:text-black hover:bg-white mt-4 lg:mt-0 float-left ml-96" onClick={()=>{setShowFeedbacks(false);setShowHome(true)}} >Home</button><br/><Feedbacks /></>:null}
+       hover:border-black hover:text-black hover:bg-white mt-4 lg:mt-0 float-left" onClick={()=>{setShowFeedbacks(false);setShowHome(true)}} >Home</button><br/><Feedbacks /></>:null}
       </div>
     );
   }

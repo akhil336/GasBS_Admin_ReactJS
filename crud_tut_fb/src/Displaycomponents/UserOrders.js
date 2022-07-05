@@ -69,9 +69,35 @@ for (let id in data) {
                 <div class="font-semibold text-gray-800">Orders List</div>
 
                 {isEdit ? (
-              <div >   <input className="inline-block text-sm px-4 py-2
+              <div >  
+                 <select className="inline-block text-sm px-4 py-2
               leading-none border rounded text-black border-black bg-gray-100 
-               hover:text-gray-700 hover:bg-gray-200 mt-4 lg:mt-0" type="text" value={status} onChange={handleStatusChange} autofocus />
+               hover:text-gray-700 hover:bg-gray-200 mt-4 lg:mt-0" onChange={handleStatusChange} >
+                {(() => {
+        if (status=="Pending") {
+          return (
+            <> <option value="Pending" selected>Pending</option>
+            <option value="Delivered">Delivered</option></> 
+          )
+        } else {
+          return (
+            <> <option value="Pending" >Pending</option>
+            <option value="Delivered" selected>Delivered</option></> 
+          )
+        }
+      })()}
+      </select>
+                {/* <select className="inline-block text-sm px-4 py-2
+              leading-none border rounded text-black border-black bg-gray-100 
+               hover:text-gray-700 hover:bg-gray-200 mt-4 lg:mt-0" onChange={handleStatusChange} >
+                  
+                  <> <option value="Pending" selected>Pending</option>
+                <option value="Delivered">Delivered</option></> 
+                  
+                   </select> */}
+                 {/* <input className="inline-block text-sm px-4 py-2
+              leading-none border rounded text-black border-black bg-gray-100 
+               hover:text-gray-700 hover:bg-gray-200 mt-4 lg:mt-0" type="text" value={status} onChange={handleStatusChange} autofocus /> */}
       
           <button className="inline-block text-sm px-4 py-2
        leading-none border rounded text-white border-black bg-green-700 

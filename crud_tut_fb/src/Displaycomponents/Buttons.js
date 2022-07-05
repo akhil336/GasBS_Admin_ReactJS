@@ -9,10 +9,8 @@ import Users from './Users';
 import Gasbs from "./Gasbs";
 import Home from "./Home";
 
-
-
 function Buttons() {
-  const [showHome,setShowHome]=useState(true);
+const [showHome,setShowHome]=useState(true);
 const [showUser,setShowUser]=useState(false);
 const [showOrders,setShowOrder]=useState(false);
 const [showFeedbacks,setShowFeedbacks]=useState(false);
@@ -21,6 +19,18 @@ const [showFeedbacks,setShowFeedbacks]=useState(false);
         <nav class="flex items-center justify-between flex-wrap bg-red-900 p-6">
         
         <Gasbs/>
+        {showUser?<><button className="inline-block text-sm px-4 py-2
+       leading-none border rounded text-white border-white 
+       hover:border-transparent hover:text-red-900 hover:bg-white mt-4 lg:mt-0" onClick={()=>{setShowUser(false);setShowHome(true)}} >Home</button><br/></>:null}
+        
+        {showOrders?<><button className="inline-block text-sm px-4 py-2
+       leading-none border rounded text-white border-white 
+       hover:border-transparent hover:text-red-900 hover:bg-white mt-4 lg:mt-0" onClick={()=>{setShowOrder(false);setShowHome(true)}} >Home</button><br/></>:null}
+      
+      {showFeedbacks?<><button className="inline-block text-sm px-4 py-2
+       leading-none border rounded text-white border-white 
+       hover:border-transparent hover:text-red-900 hover:bg-white mt-4 lg:mt-0" onClick={()=>{setShowFeedbacks(false);setShowHome(true)}} >Home</button><br/></>:null}
+     
         {/* {showUser?<><button onClick={()=>setShowUser(false)} >Hide</button><br/><Users /></>:null} */}
         {!showUser?<><button className="inline-block text-sm px-4 py-2
        leading-none border rounded text-white border-white 
@@ -40,17 +50,11 @@ const [showFeedbacks,setShowFeedbacks]=useState(false);
         </nav>
         <br/>
         {showHome?<><Home/></>:null}
-        {showUser?<><button className="inline-block text-md
-       leading-none border rounded text-white border-black bg-black
-       hover:border-black hover:text-black hover:bg-white mt-4 lg:mt-0 float-left" onClick={()=>{setShowUser(false);setShowHome(true)}} >Home</button><br/><Users /></>:null}
+        {showUser?<><br/><Users /></>:null}
         
-        {showOrders?<><button className="inline-block text-md
-       leading-none border rounded text-white border-black bg-black
-       hover:border-black hover:text-black hover:bg-white mt-4 lg:mt-0 float-left" onClick={()=>{setShowOrder(false);setShowHome(true)}} >Home</button><br/><UserOrders /></>:null}
+        {showOrders?<><br/><UserOrders /></>:null}
       
-      {showFeedbacks?<><button className="inline-block text-md
-       leading-none border rounded text-white border-black bg-black
-       hover:border-black hover:text-black hover:bg-white mt-4 lg:mt-0 float-left" onClick={()=>{setShowFeedbacks(false);setShowHome(true)}} >Home</button><br/><Feedbacks /></>:null}
+      {showFeedbacks?<><br/><Feedbacks /></>:null}
       </div>
     );
   }

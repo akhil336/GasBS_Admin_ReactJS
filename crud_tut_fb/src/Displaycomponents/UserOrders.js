@@ -3,14 +3,17 @@ import "../css style/table.css";
 import { db } from "../firebase";
 import { set, remove, update,ref, onValue } from "firebase/database";
 import { useState, useEffect } from "react";
+import OrdersDetails from "./OrderDetails";
 
+var clsGreen="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-black bg-green-700 hover:text-gray-100 hover:bg-green-900 mt-4 lg:mt-0";
+var clsRed="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-black bg-red-700 hover:text-gray-100 hover:bg-red-900 mt-4 lg:mt-0";
 function UserOrders() {
    // const [user, setUser] = useState("");
     const [order, setOrders] = useState([]);
-    
     const [isEdit, setIsEdit] = useState(false);
     const [tempOid, setTempOid] = useState("");
     const [status,setStatus]=useState("");
+  //  const [ordDetails,setOrdDetails]=useState(true);
 
     useEffect(() => {
       onValue(ref(db,'/Orders'), (snapshot) => {
@@ -87,7 +90,7 @@ for (let id in data) {
         }
       })()}
       </select>
-                {/* <select className="inline-block text-sm px-4 py-2
+           {/* <select className="inline-block text-sm px-4 py-2
               leading-none border rounded text-black border-black bg-gray-100 
                hover:text-gray-700 hover:bg-gray-200 mt-4 lg:mt-0" onChange={handleStatusChange} >
                   
@@ -99,13 +102,8 @@ for (let id in data) {
               leading-none border rounded text-black border-black bg-gray-100 
                hover:text-gray-700 hover:bg-gray-200 mt-4 lg:mt-0" type="text" value={status} onChange={handleStatusChange} autofocus /> */}
       
-          <button className="inline-block text-sm px-4 py-2
-       leading-none border rounded text-white border-black bg-green-700 
-        hover:text-gray-100 hover:bg-green-900 mt-4 lg:mt-0" onClick={handleSubmitChange}>Submit Change</button>
-          <button className="inline-block text-sm px-4 py-2
-       leading-none border rounded text-white border-black bg-red-700 
-        hover:text-gray-100 hover:bg-red-900 mt-4 lg:mt-0"
-            onClick={() => {
+          <button className={clsGreen} onClick={handleSubmitChange}>Submit Change</button>
+          <button className={clsRed}   onClick={() => {
               setIsEdit(false);
               setStatus("");
             }}
@@ -121,11 +119,9 @@ for (let id in data) {
 
             <div class="">
                 <table class="table-auto w-full">
-
                   
                     <thead class="text-xs font-semibold uppercase text-gray-700 bg-red-700">
                         <tr>
-                            
                             <th class="p-2">
                                 <div class="font-semibold text-white text-center">Amount</div>
                             </th>
@@ -136,7 +132,7 @@ for (let id in data) {
                                 <div class="font-semibold text-white text-center">Status</div>
                             </th>
                             <th class="p-2">
-                                <div class="font-semibold text-white text-center">UserID</div>
+                                <div class="font-semibold text-white text-center">Order Details</div>
                             </th>
                         </tr>
 
@@ -144,7 +140,6 @@ for (let id in data) {
                     </thead>
 
                     <tbody class="text-sm divide-y divide-gray-100">
-                      
         
         {order.map((order) => (
         //   <tr>
@@ -184,11 +179,11 @@ for (let id in data) {
         </>)}
 </div>
 </td>
-<td class="p-2">
+     <td class="p-2">
         <div class="font-medium text-gray-800">
-        {order.uid}
+        <OrdersDetails ordUid={order.uid} />
         </div>
-      </td>
+    </td>
       </tr>
 
         ))}

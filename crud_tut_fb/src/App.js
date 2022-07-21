@@ -46,6 +46,7 @@ function App() {
 </div>
       
 <Buttons/>
+<div>
 {/*     
 <section class="antialiased bg-gray-100 text-gray-600 h-screen px-4" x-data="app">
     <div class="flex flex-col justify-center h-full">
@@ -115,7 +116,7 @@ function App() {
         </div>
     </div>
 </section> */}
-
+</div>
     </div>
   );
 }

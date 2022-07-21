@@ -5,10 +5,28 @@ import { set, remove, update,ref, onValue } from "firebase/database";
 import { useState, useEffect } from "react";
 
 function OrdersDetails(props) {
-        
+const userId=props.ordUid;
           
   const [showModal, setShowModal] = useState(false);
-
+  const [users, setUsers] = useState([]);
+  
+  useEffect(() => {
+    onValue(ref(db,'/Users'), (snapshot) => {
+      setUsers([]);
+      const data = snapshot.val();
+      const arrays=[];
+      for (let id in data) {
+        if(id==userId)
+        arrays.push({ id, ...data[id] });
+      }
+      setUsers(arrays);
+    //   if (data !== null) {
+    //     Object.values(data).map((user) => {
+    //       setUsers((oldArray) => [...oldArray, user]);
+    //     });
+    //   }
+    });
+  }, []);
     
   return (
     <div className="App">
@@ -42,13 +60,14 @@ function OrdersDetails(props) {
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
                 <table>
-
+                {users.map((user) => (
+<>
   <tr class="border-b bg-gray-800 boder-gray-900">
               <td class="text-lg text-white font-medium px-6 py-4 whitespace-nowrap">
               Ordered by : 
               </td>
               <td class="text-lg text-white font-light px-6 py-4 whitespace-nowrap">
-              {props.ordUid}
+              {user.name}
               </td>
             </tr>
             <tr class="border-b bg-gray-800 boder-gray-900">
@@ -56,7 +75,7 @@ function OrdersDetails(props) {
               Phone no. : 
               </td>
               <td class="text-lg text-white font-light px-6 py-4 whitespace-nowrap">
-              {props.ordUid}
+              {user.phone}
               </td>
             </tr>
             <tr class="border-b bg-gray-800 boder-gray-900">
@@ -64,7 +83,7 @@ function OrdersDetails(props) {
                 Email id :
               </td>
               <td class="text-lg text-white font-light px-6 py-4 whitespace-nowrap">
-              {props.ordUid}
+              {user.email}
               </td>
             </tr>
             <tr class="border-b bg-gray-800 boder-gray-900">
@@ -72,9 +91,11 @@ function OrdersDetails(props) {
               Address :
               </td>
               <td class="text-lg text-white font-light px-6 py-4 whitespace-nowrap">
-              {props.ordUid}
+              {user.address}
               </td>
             </tr>
+            </>
+                ))}
 </table>
                 </div>
                 {/*footer*/}

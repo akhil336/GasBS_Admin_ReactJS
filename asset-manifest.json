@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/GasBS_Admin_ReactJS/static/css/main.50632a2f.css",
-    "main.js": "/GasBS_Admin_ReactJS/static/js/main.49b6679a.js",
+    "main.js": "/GasBS_Admin_ReactJS/static/js/main.705b0cce.js",
     "static/js/787.c34cd802.chunk.js": "/GasBS_Admin_ReactJS/static/js/787.c34cd802.chunk.js",
     "index.html": "/GasBS_Admin_ReactJS/index.html",
     "main.50632a2f.css.map": "/GasBS_Admin_ReactJS/static/css/main.50632a2f.css.map",
-    "main.49b6679a.js.map": "/GasBS_Admin_ReactJS/static/js/main.49b6679a.js.map",
+    "main.705b0cce.js.map": "/GasBS_Admin_ReactJS/static/js/main.705b0cce.js.map",
     "787.c34cd802.chunk.js.map": "/GasBS_Admin_ReactJS/static/js/787.c34cd802.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.50632a2f.css",
-    "static/js/main.49b6679a.js"
+    "static/js/main.705b0cce.js"
   ]
 }

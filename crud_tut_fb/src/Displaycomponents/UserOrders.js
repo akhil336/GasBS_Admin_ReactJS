@@ -7,6 +7,13 @@ import OrdersDetails from "./OrderDetails";
 
 var clsGreen="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-black bg-green-700 hover:text-gray-100 hover:bg-green-900 mt-4 lg:mt-0";
 var clsRed="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-black bg-red-700 hover:text-gray-100 hover:bg-red-900 mt-4 lg:mt-0";
+
+function checkBookStat(bookStat)
+{
+ if(bookStat=="Pending")return "bg-red-400 text-black";
+ else return "bg-green-300 text-gray-800";
+}
+
 function UserOrders() {
    // const [user, setUser] = useState("");
     const [order, setOrders] = useState([]);
@@ -25,14 +32,6 @@ for (let id in data) {
   }
   arrays.reverse();
   setOrders(arrays);
-
-    //     if (data !== null) {
-    //         console.log(data.key);
-    //       Object.values(data).map((order) => {
-    //         setOrders((oldArray) => [...oldArray, order]);
-    //      });
-    //    }
-
      });
     }, []);
   
@@ -146,19 +145,19 @@ for (let id in data) {
         //     <td>{order.uid}</td>
         //   </tr>
 
-    <tr>
+    <tr className={checkBookStat(order.status)}>
       <td class="p-2">
-        <div class="font-medium text-gray-800">
+        <div class="font-medium ">
         {order.amount}
         </div>
       </td>
       <td class="p-2">
-        <div class="font-medium text-gray-800">
+        <div class="font-medium ">
         {order.datetime}
         </div>
       </td>
       <td class="p-2">
-<div class="font-medium text-gray-800">
+<div class="font-medium ">
 {isEdit ? (
               <>   {order.status}
           </>) : (<>

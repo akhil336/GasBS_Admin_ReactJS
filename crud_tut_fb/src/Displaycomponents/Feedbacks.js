@@ -4,10 +4,17 @@ import {  ref, onValue } from "firebase/database";
 import { useState, useEffect } from "react";
 import OrdersDetails from "./OrderDetails";
 
+function checkRating(rate)
+{
+ if(parseInt(rate)>7)return "bg-green-400";
+ else if(parseInt(rate)>4) return "bg-green-200";
+ else return "bg-red-200";
+}
+
 function Feedbacks() {
    // const [user, setUser] = useState("");
     const [feedback, setFeedback] = useState([]);
-  
+
     useEffect(() => {
       onValue(ref(db,'/Feedbacks'), (snapshot) => {
         setFeedback([]);
@@ -45,7 +52,7 @@ function Feedbacks() {
                                 <div class="font-semibold text-white text-center">Feedback</div>
                             </th>
                             <th class="p-2">
-                                <div class="font-semibold text-white text-center">UserID</div>
+                                <div class="font-semibold text-white text-center">User details</div>
                             </th>
                         </tr>
                     </thead>
@@ -53,13 +60,9 @@ function Feedbacks() {
                     <tbody class="text-sm divide-y divide-gray-100">
         
         {feedback.map((fb) => (
-          // <tr>
-          //   <td>{fb.Rating}</td>
-          //   <td>{fb.datetime}</td>
-          //   <td>{fb.feedback}</td>
-          //   <td>{fb.uid}</td>
-          // </tr>
-          <tr>
+        
+
+          <tr className={checkRating(fb.Rating)}>
 <td class="p-2">
 <div class="font-medium text-gray-800">
 {fb.Rating}*
@@ -87,7 +90,7 @@ function Feedbacks() {
 </div>
 </td>
 </tr>
-        ))}
+))}
         
 </tbody>
                 </table>

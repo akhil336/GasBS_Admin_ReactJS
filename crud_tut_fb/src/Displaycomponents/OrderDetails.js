@@ -26,7 +26,7 @@ const ordBy=props.ordBy;
      
     <>
       <button
-        className="nline-block text-sm px-4 py-2
+        className="inline-block text-sm px-4 py-2
         leading-none border rounded text-white border-black bg-blue-800 
          hover:text-gray-100 hover:bg-blue-600 mt-4 lg:mt-0"
         type="button"

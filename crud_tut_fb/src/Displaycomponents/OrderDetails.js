@@ -12,17 +12,11 @@ const ordBy=props.ordBy;
   const [users, setUsers] = useState([]);
   
   useEffect(() => {
-    onValue(ref(db,'/Users'), (snapshot) => {
+    onValue(ref(db,`Users/${userId}`), (snapshot) => {
       setUsers([]);
       const data = snapshot.val();
       const arrays=[];
-      for (let id in data) {
-        if(id==userId)
-        {
-        arrays.push({ id, ...data[id] });
-        break;    
-        }  
-    }
+        arrays.push({...data});
       setUsers(arrays);
     });
   }, []);
@@ -31,9 +25,6 @@ const ordBy=props.ordBy;
     <div className="App">
      
     <>
-    
-
-
       <button
         className="nline-block text-sm px-4 py-2
         leading-none border rounded text-white border-black bg-blue-800 

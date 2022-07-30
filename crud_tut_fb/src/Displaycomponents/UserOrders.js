@@ -1,7 +1,7 @@
 import "../App.css";
 import "../css style/table.css";
 import { db } from "../firebase";
-import { set, remove, update,ref, onValue } from "firebase/database";
+import { update,ref, onValue } from "firebase/database";
 import { useState, useEffect } from "react";
 import OrdersDetails from "./OrderDetails";
 
@@ -10,7 +10,7 @@ var clsRed="inline-block text-sm px-4 py-2 leading-none border rounded text-whit
 
 function checkBookStat(bookStat)
 {
- if(bookStat=="Pending")return "bg-red-400 text-black";
+ if(bookStat==="Pending")return "bg-red-400 text-black";
  else return "bg-green-300 text-gray-800";
 }
 
@@ -76,7 +76,7 @@ for (let id in data) {
               leading-none border rounded text-black border-black bg-gray-100 
                hover:text-gray-700 hover:bg-gray-200 mt-4 lg:mt-0" onChange={handleStatusChange} >
                 {(() => {
-        if (status=="Pending") {
+        if (status==="Pending") {
           return (
             <> <option value="Pending" selected>Pending</option>
             <option value="Delivered">Delivered</option></> 

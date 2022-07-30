@@ -90,17 +90,6 @@ for (let id in data) {
         }
       })()}
       </select>
-           {/* <select className="inline-block text-sm px-4 py-2
-              leading-none border rounded text-black border-black bg-gray-100 
-               hover:text-gray-700 hover:bg-gray-200 mt-4 lg:mt-0" onChange={handleStatusChange} >
-                  
-                  <> <option value="Pending" selected>Pending</option>
-                <option value="Delivered">Delivered</option></> 
-                  
-                   </select> */}
-                 {/* <input className="inline-block text-sm px-4 py-2
-              leading-none border rounded text-black border-black bg-gray-100 
-               hover:text-gray-700 hover:bg-gray-200 mt-4 lg:mt-0" type="text" value={status} onChange={handleStatusChange} autofocus /> */}
       
           <button className={clsGreen} onClick={handleSubmitChange}>Submit Change</button>
           <button className={clsRed}   onClick={() => {

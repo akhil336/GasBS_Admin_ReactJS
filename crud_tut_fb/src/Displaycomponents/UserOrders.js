@@ -170,7 +170,7 @@ for (let id in data) {
 </td>
      <td class="p-2">
         <div class="font-medium text-gray-800">
-        <OrdersDetails ordUid={order.uid} />
+        <OrdersDetails ordUid={order.uid} ordText="Order" ordBy="Ordered"/>
         </div>
     </td>
       </tr>

@@ -2,6 +2,7 @@ import "../App.css";
 import { db } from "../firebase";
 import {  ref, onValue } from "firebase/database";
 import { useState, useEffect } from "react";
+import OrdersDetails from "./OrderDetails";
 
 function Feedbacks() {
    // const [user, setUser] = useState("");
@@ -81,7 +82,8 @@ function Feedbacks() {
 
 <td class="p-2">
 <div class="font-medium text-gray-800">
-{fb.uid}
+<OrdersDetails ordUid={fb.uid} ordText="Feedback" ordBy="Feedback"/>
+
 </div>
 </td>
 </tr>

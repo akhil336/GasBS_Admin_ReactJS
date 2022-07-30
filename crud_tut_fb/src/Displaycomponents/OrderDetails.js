@@ -6,7 +6,8 @@ import { useState, useEffect } from "react";
 
 function OrdersDetails(props) {
 const userId=props.ordUid;
-          
+const ordText=props.ordText;
+const ordBy=props.ordBy;          
   const [showModal, setShowModal] = useState(false);
   const [users, setUsers] = useState([]);
   
@@ -23,17 +24,12 @@ const userId=props.ordUid;
         }  
     }
       setUsers(arrays);
-    //   if (data !== null) {
-    //     Object.values(data).map((user) => {
-    //       setUsers((oldArray) => [...oldArray, user]);
-    //     });
-    //   }
     });
   }, []);
     
   return (
     <div className="App">
-     {/* <h1>Hello {props.ordUid}</h1> */}
+     
     <>
     
 
@@ -57,7 +53,7 @@ const userId=props.ordUid;
                 {/*header*/}
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                  <h3 className="text-3xl font-semibold">
-                    Order Details
+                 {ordText} Details
                   </h3>
                 </div>
                 {/*body*/}
@@ -67,7 +63,7 @@ const userId=props.ordUid;
 <>
   <tr class="border-b bg-gray-800 boder-gray-900">
               <td class="text-lg text-white font-medium px-6 py-4 whitespace-nowrap">
-              Ordered by : 
+              {ordBy} by : 
               </td>
               <td class="text-lg text-white font-light px-6 py-4 whitespace-nowrap">
               {user.name}

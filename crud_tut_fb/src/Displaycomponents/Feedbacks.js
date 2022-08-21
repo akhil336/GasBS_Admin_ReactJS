@@ -59,37 +59,37 @@ function Feedbacks() {
 
                     <tbody class="text-sm divide-y divide-gray-100">
         
-        {feedback.map((fb) => (
+      {feedback.map((fb) => (
         
 
-          <tr className={checkRating(fb.Rating)}>
-<td class="p-2">
-<div class="font-medium text-gray-800">
-{fb.Rating}*
-</div>
-</td>
+      <tr className={checkRating(fb.Rating)}>
+      <td class="p-2">
+      <div class="font-medium text-gray-800">
+      {fb.Rating}*
+      </div>
+      </td>
 
-<td class="p-2">
-<div class="font-medium text-gray-800">
-{fb.datetime}
-</div>
-</td>
-
-
-<td class="p-2">
-<div class="font-medium text-left text-gray-800">
-{fb.feedback}
-</div>
-</td>
+      <td class="p-2">
+      <div class="font-medium text-gray-800">
+      {fb.datetime}
+      </div>
+      </td>
 
 
-<td class="p-2">
-<div class="font-medium text-gray-800">
-<OrdersDetails ordUid={fb.uid} ordText="Feedback" ordBy="Feedback"/>
+      <td class="p-2">
+      <div class="font-medium text-left text-gray-800">
+      {fb.feedback}
+      </div>
+      </td>
 
-</div>
-</td>
-</tr>
+
+      <td class="p-2">
+      <div class="font-medium text-gray-800">
+      <OrdersDetails ordUid={fb.uid} ordText="Feedback" ordBy="Feedback"/>
+
+      </div>
+      </td>
+      </tr>
 ))}
         
 </tbody>

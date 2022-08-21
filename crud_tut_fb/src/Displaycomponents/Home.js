@@ -17,8 +17,6 @@ function Home() {
   <div className="">
     <LpgPrice />
   </div>
- 
-    
     </div>
     <div className="flex justify-center p-10">
 <img className="" alt="Online Gas Booking System" src={require('../images/HomeGas.png')}/>

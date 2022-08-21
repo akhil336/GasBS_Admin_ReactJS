@@ -2,7 +2,8 @@ import "../App.css";
 import React,{useState,useEffect} from 'react';
 import axios from 'axios';
 import { db } from "../firebase";
-import {  ref, onValue } from "firebase/database";
+import { update, ref, onValue } from "firebase/database";
+import PriceUpdateModal from "./PriceUpdateModal";
 
 const btncls="h-10 px-5 m-2 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-lg hover:bg-indigo-800 h-8 px-4 text-sm";
 
@@ -44,17 +45,14 @@ function LpgPrice() {
 
   return (
     <>
-     
-
     <div class="flex flex-col bg-yellow-500 rounded-lg p-4">
         <div>LPG Price in our Database : <div className="bg-green-300 text-red-900 font-bold">{price}</div></div>
         
         <div>Market LPG Price : <div className="bg-green-300 text-red-900 font-bold">{newPrice}</div></div>
         
-        <button className={btncls}>Update price</button>
+        {/* <button className={btncls}>Update price</button> */}
+        <div> <PriceUpdateModal oldPrice={price} newPrice={newPrice}/> </div>
     </div>
-
-      
     </>
   );
 }

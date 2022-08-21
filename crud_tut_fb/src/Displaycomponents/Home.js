@@ -9,6 +9,8 @@ function Home() {
      <div className="flex justify-around">
       <div>
       </div>
+      <div>
+      </div>
      <div className="text-5xl">
        Welcome Admin!!
     </div>

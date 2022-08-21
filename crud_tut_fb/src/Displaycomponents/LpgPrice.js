@@ -10,18 +10,21 @@ function LpgPrice() {
   
     const [price, setPrice] = useState("");
     const [newPrice, setNewPrice] = useState("");
-    const fetchPriceAPI=async()=>{
+    const fetchPriceAPI=async()=>
+    {
         
-        
-      try{  
-        // const response=await axios('52.66.203.44:8080/pricemangaluru');
-        const response=await axios('http://localhost:8081/priceMangaluru');
-      if(response!=null)
-      setNewPrice(response.data)}
-      catch(err){
-        console.log(err);
-        setNewPrice("Failed to get market price");}
-        
+        try
+        {  
+            // const response=await axios('52.66.203.44:8080/pricemangaluru');
+            const response=await axios('http://localhost:8081/priceMangaluru');
+            if(response!=null)
+            setNewPrice(response.data)
+        }
+        catch(err)
+        {
+            console.log(err);
+            setNewPrice("Failed to get market price");
+        }    
     }
 
     const fetchPriceDB=async()=>{
@@ -43,14 +46,13 @@ function LpgPrice() {
     <>
      
 
-        <div class="flex flex-col bg-yellow-500 rounded-lg p-4">
-                <div>LPG Price in our Database : <div className="bg-green-300 text-red-900 font-bold">{price}</div></div>
-                
-                <div>Market LPG Price : <div className="bg-green-300 text-red-900 font-bold">{newPrice}</div></div>
-                
-                
-                <button class={btncls}>Update price</button>
-        </div>
+    <div class="flex flex-col bg-yellow-500 rounded-lg p-4">
+        <div>LPG Price in our Database : <div className="bg-green-300 text-red-900 font-bold">{price}</div></div>
+        
+        <div>Market LPG Price : <div className="bg-green-300 text-red-900 font-bold">{newPrice}</div></div>
+        
+        <button className={btncls}>Update price</button>
+    </div>
 
       
     </>

@@ -1,15 +1,32 @@
 import React,{useState} from "react";
 import { update,ref, onValue } from "firebase/database";
+import { db } from "../firebase";
 
 function PriceUpdateModal(props) {
 
 const failed="Failed to get market price";
-let Price = props.newPrice;
+var Price = props.newPrice;
 
 if(Price===failed)
     Price=props.oldPrice;
 
+console.log(Price);
+const x=Price.toString();
 const [showModal, setShowModal] = useState(false);
+const [tempPrice,setTempPrice] = useState({x});
+
+const handlePriceChange = (e) => {
+    setTempPrice(e.target.value);
+  };
+
+  const handleSaveChange = () => {
+    console.log(tempPrice);
+    update(ref(db, '/LpgPrice'), {
+        price:tempPrice
+    });
+    
+    setShowModal(false);
+  };
 
   return (
     <>
@@ -42,7 +59,7 @@ const [showModal, setShowModal] = useState(false);
                 </div>
                 {/*body*/}
                 <div className="relative p-6 flex-auto">
-                  
+                  <input type="text" value={tempPrice} onChange={handlePriceChange}></input>
                 </div>
                 {/*footer*/}
                 <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
@@ -56,8 +73,7 @@ const [showModal, setShowModal] = useState(false);
                   <button
                     className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
-                    onClick={() => setShowModal(false)}
-                  >
+                    onClick={handleSaveChange}>
                     Save Changes
                   </button>
                 </div>

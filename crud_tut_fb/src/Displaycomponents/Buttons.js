@@ -9,7 +9,7 @@ import Users from './Users';
 import Gasbs from "./Gasbs";
 import Home from "./Home";
 
-var clsButton="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-red-900 hover:bg-white mt-4 lg:mt-0";
+var clsButton="inline-block text-sm px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-red-900 hover:scale-110 hover:font-semibold hover:bg-white mt-4 lg:mt-0";
 
 function Buttons() {
 const [showHome,setShowHome]=useState(true);

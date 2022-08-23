@@ -19,11 +19,18 @@ function Feedbacks() {
       onValue(ref(db,'/Feedbacks'), (snapshot) => {
         setFeedback([]);
         const data = snapshot.val();
-        if (data !== null) {
-          Object.values(data).map((fb) => {
-            setFeedback((oldArray) => [...oldArray, fb]);
-          });
-        }
+        const arrays=[];
+      for (let id in data)
+      {
+        arrays.push({ id, ...data[id] });
+      }
+      arrays.reverse();
+      setFeedback(arrays);
+        // if (data !== null) {
+        //   Object.values(data).map((fb) => {
+        //     setFeedback((oldArray) => [...oldArray, fb]);
+        //   });
+        // }
       });
     }, []);
   
@@ -62,7 +69,7 @@ function Feedbacks() {
       {feedback.map((fb) => (
         
 
-      <tr className={checkRating(fb.Rating)}>
+      <tr className={checkRating(fb.Rating)} key={fb.id}>
       <td class="p-2">
       <div class="font-medium text-gray-800">
       {fb.Rating}*

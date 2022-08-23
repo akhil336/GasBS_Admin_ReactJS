@@ -75,7 +75,7 @@ function Users() {
         
         </table> */}
 {users.map((user) => (
-  <tr>
+  <tr key={user.email}>
 <td class="p-2">
 <div class="font-medium text-gray-800">
 {user.name}

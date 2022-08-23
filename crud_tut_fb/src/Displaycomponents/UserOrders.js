@@ -130,22 +130,8 @@ for (let id in data) {
                     <tbody class="text-sm divide-y divide-gray-100">
         
         {order.map((order) => (
-        //   <tr>
-        //     <td>{order.amount}</td>
-        //     <td>{order.datetime}</td>
-        //     <td>
-        //     {isEdit ? (
-        //       <>   {order.status}
-        //   </>) : (<>
-        // {order.status} <button onClick={() => handleUpdate(order)}>update</button>
-        // </>)}
-             
-        // </td>
-            
-        //     <td>{order.uid}</td>
-        //   </tr>
-
-    <tr className={checkBookStat(order.status)}>
+          
+    <tr className={checkBookStat(order.status)}  key={order.id}>
       <td class="p-2">
         <div class="font-medium ">
         {order.amount}

@@ -74,43 +74,43 @@ function Users() {
         ))}
         
         </table> */}
-{users.map((user) => (
-  <tr key={user.email}>
-<td class="p-2">
-<div class="font-medium text-gray-800">
-{user.name}
-</div>
-</td>
+                  {users.map((user) => (
+                      <tr key={user.email}>
+                        <td class="p-2">
+                        <div class="font-medium text-gray-800">
+                        {user.name}
+                        </div>
+                        </td>
 
-<td class="p-2">
-<div class="font-medium text-gray-800">
-{user.email}
-</div>
-</td>
-
-
-<td class="p-2">
-<div class="font-medium text-gray-800">
-{user.phone}
-</div>
-</td>
+                        <td class="p-2">
+                        <div class="font-medium text-gray-800">
+                        {user.email}
+                        </div>
+                        </td>
 
 
-<td class="p-2">
-<div class="font-medium text-gray-800">
-{user.address}
-</div>
-</td>
+                        <td class="p-2">
+                        <div class="font-medium text-gray-800">
+                        {user.phone}
+                        </div>
+                        </td>
 
 
-<td class="p-2">
-<div class="font-medium text-gray-800">
-{user.password}
-</div>
-</td>
-</tr>
- ))}
-</tbody>
+                        <td class="p-2">
+                        <div class="font-medium text-gray-800">
+                        {user.address}
+                        </div>
+                        </td>
+
+
+                        <td class="p-2">
+                        <div class="font-medium text-gray-800">
+                        {user.password}
+                        </div>
+                        </td>
+                    </tr>
+                  ))}
+                  </tbody>
                 </table>
             </div>
         </div>
